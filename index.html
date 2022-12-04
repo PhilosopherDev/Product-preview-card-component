@@ -23,13 +23,14 @@
   <body>
     <div class="container">
       <div class="media">
-        <div class="media__img-wrapper">
+        <picture class="media__img-wrapper">
+          <source srcset="./images/image-product-desktop.jpg" media="(min-width: 611px)"/>
           <img
             class="media__img"
-            src="./images/image-product-desktop.jpg"
+            src="./images/image-product-mobile.jpg"
             alt="perfume"
-          />
-        </div>
+        />
+        </picture>
         <div class="media__body">
           <div class="media__header">PERFUME</div>
           <div class="media__title">Gabrielle Essence Eau De Parfum</div>
@@ -48,13 +49,6 @@
             </button>
           </div>
         </div>
-      </div>
-
-      <div class="attribution">
-        Challenge by
-        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
-          >Frontend Mentor</a
-        >. Coded by <a href="#">BYUNGMIN CHOI</a>.
       </div>
     </div>
   </body>
