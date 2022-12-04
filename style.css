@@ -73,11 +73,13 @@ table {
 
 /* Typography */
 
-.container {    
+body {
     background-color: var(--color-cream);
+}
+
+.container {    
     display: flex;
-    width: 100vw;
-    height: 100vh;
+    min-height: 100vh; /* y 축 스크롤 나오게하려고 지정 */
     align-items: center;
     justify-content: center;
 }
@@ -85,9 +87,11 @@ table {
 .media {    
     background-color: var(--color-white);
     display: flex;
-    width: 600px;
-    height: 450px;
+    max-width: 600px; /* media query 영향으로 이거보다 작아질 일이 없음 */
+    max-height: 450px;
     border-radius: 10px;
+
+    margin: 1.5rem 0;
 }
 
 .media__img-wrapper {
@@ -188,20 +192,37 @@ table {
     font-size: var(--fs-400);
 }
 
+@media screen and (max-width: 610px) {
+    .container {    
+        min-width: 20rem; /* 이거보다 작아지면 가로가 무시되지 않는다 */
+        box-sizing: border-box;
+    }
 
-
-/* @media screen and (max-width: 768px) {
     .media {
-        display: block;
+        flex-direction: column;
+        
+        /* 고정 값으로 넣어주는 것으론 충분하나, media content 가 늘어나면 깨진다. 확인해보자. */
+
+        min-height: 30rem;
+        max-width: 22rem;
+        max-height: 40rem;
     }
 
     .media__img-wrapper {
+        width: 100%;
         margin-right: 0;
-        margin-bottom: 20px;
     }
-} */
 
+    .media__img {
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        border-bottom-left-radius: 0px;
+    }
 
-
-.attribution { position: absolute; bottom: 0; font-size: 11px; text-align: center; }
-.attribution a { color: hsl(228, 45%, 44%); }
+    .media__body {
+        width: 100%;
+        padding: 1.2rem;
+        min-height: 20rem;
+        justify-content: space-between;
+    }
+}   
